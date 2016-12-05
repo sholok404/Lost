@@ -1,9 +1,9 @@
 ﻿var player : Transform;
-var move_speed = 4;
+var move_speed = 5;
 var min_dist = 5;
 var max_dist = 10;
 
-var damage = 1;
+var damage = 10;
 
 function Start () {
 	GetComponent.<Animation>().Play("idle");

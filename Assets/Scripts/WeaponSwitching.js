@@ -1,5 +1,6 @@
 #pragma strict
 
+var melee : Transform;
 var Weapon01 : GameObject;
 var Weapon02 : GameObject;
 
@@ -16,10 +17,12 @@ function SwapWeapons()
 	{
 		Weapon01.SetActive(false);
 		Weapon02.SetActive(true);
+		melee.SendMessage("axe", SendMessageOptions.DontRequireReceiver);
 	}
 	else 
 	{
 		Weapon01.SetActive(true);
 		Weapon02.SetActive(false);
+		melee.SendMessage("knife", SendMessageOptions.DontRequireReceiver);
 	}
 }

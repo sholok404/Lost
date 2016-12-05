@@ -2,7 +2,7 @@
 // BTW, FUCK OFF! THIS IS MY FUCKING CODE YOU LITTLE COPY CAT PIECE OF SHIT. STOP LOOKING AT MY CODE OR I WILL FUCKING BEAT THE LEAVING HELL OUTTA YOU.
 // You still here? Well then, send me a mail at brosholok@protonmail.com
 
-var damage : int = 50;
+var damage : int = 10;
 var distance : float;
 var max_distance : float = 1.5;
 
@@ -16,4 +16,14 @@ function Update () {
 			}
 		}
 	}
+}
+
+function axe () {
+	damage = 70;
+	max_distance = 2.5;
+}
+
+function knife () {
+	damage = 50;
+	max_distance = 1.75;
 }
