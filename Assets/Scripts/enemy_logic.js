@@ -13,5 +13,6 @@ function apply_damage (damage : int) {
 }
 
 function dead() {
+	GetComponent.<Animation>().Play("die");
 	Destroy (gameObject);
 }

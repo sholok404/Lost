@@ -1,33 +1,30 @@
-﻿var distance;
-var target : Transform;
-var look_at_distance = 15.0;
-var attack_range = 1.5;
-var move_speed = 5.0;
-var damping = 6.0;
+﻿var player : Transform;
+var move_speed = 4;
+var min_dist = 5;
+var max_dist = 10;
 
-function Start() {
+var damage = 1;
+
+function Start () {
 	GetComponent.<Animation>().Play("idle");
 }
 
 function Update () {
-	distance = Vector3.Distance(target.position, transform.position);
+	transform.LookAt (player);
+	if (Vector3.Distance(transform.position, player.position) >= min_dist) {
+		GetComponent.<Animation>().Play("walk");
+		transform.position += transform.forward * move_speed*Time.deltaTime;
 
-	if (distance < look_at_distance) {
-		look_at();
+		if (Vector3.Distance(transform.position, player.position) <= max_dist) {
+			attack();
+		}
 	}
-	if (distance > look_at_distance) {
-	}
-	if (distance < attack_range) {
-		attack();
-	}
-}
-
-function look_at() {
-	var rotation = Quaternion.LookRotation(target.position - transform.position);
-	transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
 }
 
 function attack() {
-	GetComponent.<Animation>().Play("walk");
-	transform.Translate(Vector3.forward * move_speed * Time.deltaTime);
+	// GetComponent.<Animation>().Play("attack");
+	if (Time.time > 5) {
+		GetComponent.<Animation>().Play("attack");
+		player.SendMessage("apply_damage", damage, SendMessageOptions.DontRequireReceiver);
+	}
 }
