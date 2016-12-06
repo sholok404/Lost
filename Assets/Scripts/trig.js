@@ -18,11 +18,12 @@ function Update () {
 		scare.SetActive(true);
 		makehimscream ();
 		removeovertime();
+		trig = false;
 	}
 }
 
 function removeovertime () {
-	yield WaitForSeconds (0.06);
+	yield WaitForSeconds (0.8);
 	scare.SetActive(false);
 }
 
