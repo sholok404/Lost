@@ -1,7 +1,7 @@
-﻿var cyclemins : float;
-var cyclecalc : float;
+﻿private var cyclemins : float;
+private var cyclecalc : float;
 
-cyclemins = 30;
+cyclemins = 15;
 cyclecalc = 0.1/cyclemins *-1;
 
 function Update () {

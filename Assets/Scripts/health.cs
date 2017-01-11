@@ -9,7 +9,6 @@ public class health : MonoBehaviour {
 	private float min_health = 0;
 	
 	public static float current_health;
-
 	// Use this for initialization
 	void Start () {
 		current_health = 150;
@@ -28,5 +27,9 @@ public class health : MonoBehaviour {
 		if (current_health <= 0) {
 			SceneManager.LoadScene ("Scenes/over");
 		}
+	}
+	
+	public void target_damage (int target_damage) {
+		current_health -= target_damage;
 	}
 }
